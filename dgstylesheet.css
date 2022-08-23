@@ -95,6 +95,9 @@ h2 {
 .main {
   text-align: center;
 }
+p {
+  color: black;
+}
 #about {
   margin-top: 50px;
   display: inline-block;
