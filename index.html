@@ -2,74 +2,82 @@
 <html>
  <head>
   <title>Dan Goodwin</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <link rel="stylesheet" href="dgstylesheet.css">
+  <script>
+   $(function() {
+     $("#summary").click(function() {
+      $("#details").slideToggle(1000);
+     })
+   })
+  </script>
   <meta charset="UTF-8">
   <meta name="description" content="Dan Goodwin Webpage">
   <meta name="keywords" content="HTML, Dan Goodwin, CSS, Goodwin, daniel-n-goodwin, daniel goodwin, dan goodwin, web development, deployment manager, manager, management">
   <meta name="author" content="Dan Goodwin">
  </head>
- <nav class="navbar">
-   <ul>
-     <li id="brand"><a href="#home" class="nav-link">Dan Goodwin</a></li>
-     <li><a href="#contact" class="nav-link">Contact</a></li>
-     <li><a href="#about" class="nav-link">About</a></li>
-   </ul>
- </nav>
+<nav class="navbar">
+  <ul>
+    <li id="brand"><a href="#home" class="nav-link">Dan Goodwin</a></li>
+    <li><a href="#contact" class="nav-link">Contact</a></li>
+    <li><a href="#about" class="nav-link">About</a></li>
+  </ul>
+</nav>
 
- <body>
-  <header id="home">
-    <h1 class="header-tag">Nice to meet you!</h1>
-    <h3 class="header-tag">I'm the <i>{ CSS }</i> to your <i>< HTML ></i></h3>
-  </header>
+<body>
+ <header id="home">
+   <h1 class="header-tag">Nice to meet you!</h1>
+   <h3 class="header-tag">I'm the <i>{ CSS }</i> to your <i>< HTML ></i></h3>
+ </header>
 
-  <div class="main">
-    <section id="about">
-      <div id="about-picture">
-        <img src="https://assets.codepen.io/8664645/internal/avatars/users/default.png?fit=crop&format=auto&height=512&version=1660511842&width=512" alt="profile-picture" id="profile-pic">
-      </div>
-      <div id="about-content">
-        <h2>Dan Goodwin</h2>
-        <p>I am currently working Acitve Duty in the US Air Force as the Unit Deployment Manager for the 2nd Munitions Squadron.  In this position I have gained Logistics and Business Operations Management skills to include handling and processsing of classified information, gathering and organizing various preformance metric data, preparing and breifing detailed reports to high level leadership, organizing and executing large scale cargo/equipment and personnel transportation, as well as supervising 340+ personnel in maintaining over 50 deployment readiness requirements.</p>
-        <p>Aside from the Logistics and Business Operations Management skills listed above, I am also working to grow my skills in programming to include HTML, CSS, JavaScript, Python, XML, and C++.  The love I have for programming started as a hobby to make mods for games that I play, but it has grown into more of a true passion that I hope to make into a career someday.</p>
-        <p>In addition to my passion for programming and web development, I also have several other hobbies that I enjoy, such as working on classic cars, building computers, studying history and genealogy.  I also enjoy spending my most valuable asset, time, with my bbest friend in the world, my wife.  We enjoying going places and discovering new things together, and someday we hope to be able to travel to Japan and the UK.</p>
-        <p>Thank you very much.</p>
-        <table id="skill-table">
-          <tr>
-            <th>Technical Skills</th>
-            <th>Soft Skills</th>
-          </tr>
-          <tr>
-            <td title="Hypertext Markup Language">HTML</td>
-            <td>Business Operations</td>
-          </tr>
-          <tr>
-            <td title="Cascading Stylesheets">CSS</td>
-            <td>Logistics Management</td>
-          </tr>
-          <tr>
-            <td>IT Fundamentals+</td>
-            <td>Executive Reports Preperation</td>
-          </tr>
-          <tr>
-            <td>Microsoft Excel</td>
-            <td>Supervisory/Leadership Skills</td>
-          </tr>
-        </table>
-      </div>
-    </section>
-    <section id="contact">
-      <div id="contact-content">
-          <div id="summary"><h2>Contact Information</h2></s></div>
-          <div id="details">
-            <p><b>E-mail: <a href="mailto:anythoughts@thoughtsanyone.com?cc=dans78mgb@gmail.com&subject=CodePen Contact Email">Send E-mail</a></b></p>
-            <p><b>LinkedIn: <a href="https://www.linkedin.com/in/daniel-n-goodwin/">Dan Goodwin</a></b></p>
-            <p><b>Codepen: <a href="https://codepen.io/AnyThoughts">My Profile</a></b></p>
-          </div>
-      </div>
-    </section>
-  </div>
- </body>
+ <div class="main">
+   <section id="about">
+     <div id="about-picture">
+       <img src="https://assets.codepen.io/8664645/internal/avatars/users/default.png?fit=crop&format=auto&height=512&version=1660511842&width=512" alt="profile-picture" id="profile-pic">
+     </div>
+     <div id="about-content">
+       <h2>Dan Goodwin</h2>
+       <p>I am currently working Acitve Duty in the US Air Force as the Unit Deployment Manager for the 2nd Munitions Squadron.  In this position I have gained Logistics and Business Operations Management skills to include handling and processsing of classified information, gathering and organizing various preformance metric data, preparing and breifing detailed reports to high level leadership, organizing and executing large scale cargo/equipment and personnel transportation, as well as supervising 340+ personnel in maintaining over 50 deployment readiness requirements.</p>
+       <p>Aside from the Logistics and Business Operations Management skills listed above, I am also working to grow my skills in programming to include HTML, CSS, JavaScript, Python, XML, and C++.  The love I have for programming started as a hobby to make mods for games that I play, but it has grown into more of a true passion that I hope to make into a career someday.</p>
+       <p>In addition to my passion for programming and web development, I also have several other hobbies that I enjoy, such as working on classic cars, building computers, studying history and genealogy.  I also enjoy spending my most valuable asset, time, with my bbest friend in the world, my wife.  We enjoying going places and discovering new things together, and someday we hope to be able to travel to Japan and the UK.</p>
+       <p>Thank you very much.</p>
+       <table id="skill-table">
+         <tr>
+           <th>Technical Skills</th>
+           <th>Soft Skills</th>
+         </tr>
+         <tr>
+           <td title="Hypertext Markup Language">HTML</td>
+           <td>Business Operations</td>
+         </tr>
+         <tr>
+           <td title="Cascading Stylesheets">CSS</td>
+           <td>Logistics Management</td>
+         </tr>
+         <tr>
+           <td>IT Fundamentals+</td>
+           <td>Executive Reports Preperation</td>
+         </tr>
+         <tr>
+           <td>Microsoft Excel</td>
+           <td>Supervisory/Leadership Skills</td>
+         </tr>
+       </table>
+     </div>
+   </section>
+   <section id="contact">
+     <div id="contact-content">
+         <div id="summary"><h2>Contact Information</h2></s></div>
+         <div id="details">
+           <p><b>E-mail: <a href="mailto:anythoughts@thoughtsanyone.com?cc=dans78mgb@gmail.com&subject=CodePen Contact Email">Send E-mail</a></b></p>
+           <p><b>LinkedIn: <a href="https://www.linkedin.com/in/daniel-n-goodwin/">Dan Goodwin</a></b></p>
+           <p><b>Codepen: <a href="https://codepen.io/AnyThoughts">My Profile</a></b></p>
+         </div>
+     </div>
+   </section>
+ </div>
  <footer>
-  <p>©2022 by Dan Goodwin<br>Updated on 22 Aug 2022<br>Managed by Dan Goodwin</p>
+   <p>©2022 by Dan Goodwin<br>Updated on 22 Aug 2022<br>Managed by Dan Goodwin</p>
  </footer>
+</body>
 </html>
