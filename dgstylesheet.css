@@ -19,6 +19,7 @@ nav ul li {
 }
 .nav-link {
   color: #AABEDE;
+  font-size: 13px;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   font-family: 'Monaco', monospace;
@@ -26,30 +27,35 @@ nav ul li {
   padding: 8px;
   border-radius: 0.8em;
   background-color: rgba(69,69,69,0.42);
+  box-shadow: 1.5px 1.5px 2.5px black;
+  transition: .75s;
 }
 .nav-link:hover {
   color: lightgreen;
   border-color: lightgreen;
   font-weight: bold;
   text-decoration: none;
+  background-color: rgba(69,99,99,0.42);
+  box-shadow: 2.5px 2.5px 4px rgba(69,69,69,0.62);
 }
 #brand .nav-link {
   color: lightgreen;
   border-color: lightgreen;
-  font-size: 14pt;
+  font-size: 16px;
+  transition: .75s;
 }
 #brand .nav-link:hover {
   color: #AABEDE;
   border-color: #AABEDE;
 }
 
-/*--Main/Body--*/
+//--Main/Body--//
 body {
   background: linear-gradient(-90deg, rgba(170,190,180,1)60%, rgba(30,50,40,0.75));
   overflow-x: hidden;
 }
 h1 {
-  font-size: 60pt;
+  font-size: 65px;
 }
 #home {
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 10, 5, 0.9)), url(https://images.unsplash.com/photo-1652971887223-9abd845f940c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1923&q=80) center 15% no-repeat fixed;
@@ -63,16 +69,25 @@ h1 {
   background-size: cover;
 }
 .header-tag {
+  cursor: default;
   text-align: center;
   color: #4A7F7A;
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white, -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
   font-family: 'Console', monospace;
+  transition: 1.2s ease;
 }
 h3.header-tag {
   margin-top: -30px;
-  font-size: 18pt;
+  font-size: 22px;
   text-shadow: -1px 0 rgba(215,245,215,0.6), 0 1px rgba(215,245,215,0.6), 1px 0 rgba(215,245,215,0.6), 0 -1px rgba(215,245,215,0.6), -2px 0 rgba(115,145,115,0.8), 0 2px rgba(115,145,115,0.8), 2px 0 rgba(115,145,115,0.8), 0 -2px rgba(115,145,115,0.8);
 }
+.header-tag:hover {
+  color: white;
+  text-shadow: -2px 0 green, 0 2px green, 2px 0 green, 0 -2px green, -2px 0 6px white, 0 2px 6px white, 2px 0 6px white, 0 -2px 6px white;
+  transform: scale(1.02, 1.02);
+}
+
+//--About Section--//
 #about-picture {
   width: 25vw;
   float: left;
@@ -81,11 +96,11 @@ h3.header-tag {
   height: 320px;
   width: 320px;
   border-radius: 3rem;
-  box-shadow: 4px 4px 4px black;
+  box-shadow: 6px 6px 8px #546464;
+  transition: 1s linear;
 }
 #profile-pic:hover {
-  transform: translate3d(3px, 2px, 1px) scale(1.05, 1.05);
-  box-shadow: 8px 8px 8px black;
+  transform: scale(1.06, 1.06);
 }
 h2 {
   color: #4A7F7A;
@@ -93,6 +108,7 @@ h2 {
   font-family: 'Monaco', monospace;
 }
 .main {
+  cursor: default;
   text-align: center;
   color: black;
 }
@@ -105,16 +121,14 @@ h2 {
   float: left;
   line-height: 1.4;
 }
+
+//--Skill Table--//
 #skill-table {
+  cursor: default;
   display: inline-block;
   margin: 4px;
   margin-top: 40px;
   text-align: center;
-  border-spacing: 3px;
-  border: solid;
-  border-color: white;
-  border-radius: 1.2rem;
-  background-color: #000;
 }
 td, th {
   padding: 10px;
@@ -123,21 +137,31 @@ td, th {
   border-radius: 0.7rem;
   height: 25px;
   width: 300px;
+  transition: 1.4s ease;
 }
 th {
   background-color: #1A2F2A;
   color: #fff;
-  font-size: 16pt;
+  font-size: 17px;
   text-transform: uppercase;
 }
 td {
   background-color: #4A7F7A;
   color: #ddd;
-  font-size: 14pt;
+  font-size: 15px;
   font-style: italic;
   text-transform: capitalize;
 }
+th:hover {
+  transform: scale(1.2, 1.2);
+}
+td:hover {
+  transform: rotate3d(0.5, 0, 0, 360deg) ;
+}
+
+//--Contact Section--//
 #contact {
+  cursor: pointer;
   margin-top: 60px;
   margin-left: 25vw;
   display: inline-block;
@@ -146,27 +170,31 @@ td {
   width: 35vw;
   float: left;
 }
-#summary:hover + #details, #details:hover {
-  display: block;
-  /*animation: 3s linear 0s 1 running slidedown;*/
-}
 #details {
   display: none;
 }
-/*@keyframes slidedown {
-  from {
-    display: none;
-  }
-  to {
-    display: block;
-  }
-}*/
+#details p {
+  border: solid 2px #4A7F7A;
+  border-radius: 2em;
+  background-color: #1A2F2A;
+  color: white;
+  padding: 5px 2px;
+  margin-left: 38%;
+  width: 220px;
+  text-align: center;
+}
+#details a {
+  color: white;
+  font-style: italic;
+}
+
+//--Footer--//
 footer {
-  display: flex;
-  width: 100vw;
-  margin-left: 80px;
-  margin-top: 100px;
-  justify-content: left;
+  cursor: default;
+  position: absolute;
+  bottom: -88%;
+  left: 88%;
+  width: 25vw;
   padding: 5px;
   color: #fff;
   font-weight: bold;
