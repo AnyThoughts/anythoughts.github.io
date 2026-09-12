@@ -18,64 +18,83 @@
   --font-label: "Cinzel", serif;
   --font-script: "Bonheur Royale", cursive;
 }
-nav {
+#about, #books, #faith, #contact {
+	scroll-margin-top: 6rem;
+}
+::-webkit-scrollbar {
+	display: none;
+}
+
+/*NAVIGATION BAR SECTION*/
+.navbar {
 	background-color: var(--midnight);
 	position: fixed;
 	top: 0;
 	left: 0;
-	height: 5.56vh;
-	width: 100vw;
+	width: 100%;
+	height: auto;
+	padding: 0.75rem 1rem;
+	box-sizing: border-box;
 	z-index: 5;
 }
-nav ul li {
-	float: right;
-	margin-right: 3.9vw;
-	list-style-type: none;
+.navbar ul {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 0.5rem 1rem;
+	max-width: 70rem;
+	margin: 0 auto;
+	padding: 0;
+	list-style: none;
+}
+.navbar ul li {
+	float: none;
+	margin: 0;
 	text-align: center;
 }
-nav a {
+.navbar #brand {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	float: none;
+	margin-right: auto;
+}
+.navbar .nav-link {
 	position: relative;
-}
-#brand {
-	float: left;
-}
-.nav-link {
+	display: inline-block;
 	color: var(--steel);
 	font-size: 1.25rem;
 	text-decoration: none;
 	font-family: var(--font-label);
 	letter-spacing: 0.1em;
-	padding: 16px;
-	transition: 0.5s ease;
+	padding: 0.4rem 0.5rem;
+	transition: color 0.5s ease;
 }
-.nav-link::after {
+.navbar .nav-link::after {
+	content: "";
 	position: absolute;
-	bottom: 1.125rem;
+	bottom: 0;
 	left: 0;
 	height: 1.5px;
+	width: 0;
 	background: var(--gold-light);
-	width: 0%;
 	transition: width 0.5s ease;
-	content: "";
 }
-.nav-link:hover, nav-link:active {
+.navbar .nav-link:hover, .navbar .nav-link:focus-visible, .navbar .nav-link:active {
 	color: var(--gold);
-	padding: 16px;
-	text-decoration: none;
 }
-.nav-link:hover::after,.nav-link:active::after {
+.navbar .nav-link:hover::after, .navbar .nav-link:focus-visible::after, .navbar .nav-link:active::after {
 	width: 100%;
 }
-#brand .nav-link {
-	position: absolute;
-	margin-left: 1rem;
-	bottom: -0.25rem;
+.navbar #brand .nav-link {
+	position: relative;
+	margin: 0;
 	color: var(--gold);
 	font-size: 1.95rem;
-	font-style: bold;
-	transition: 0.65s ease;
+	font-weight: 700;
+	transition: color 0.65s ease;
 }
-#brand .nav-link:hover {
+.navbar #brand .nav-link:hover {
 	color: var(--steel);
 }
 .brand-mark {
@@ -83,18 +102,59 @@ nav a {
 	position: relative;
 	display: grid;
 	place-items: center;
+	flex-shrink: 0;
 	width: 2.5rem;
 	aspect-ratio: 1;
 	font-size: 1.45rem;
 }
 .brand-mark::before {
+	content: "";
 	position: absolute;
 	inset: 0.125rem;
 	border: 1.5px solid var(--gold-dark);
-	content: "";
 	transform: rotate(45deg);
 }
+/* SMALLER SCREENS */
+@media (max-width: 60rem) {
+	.navbar ul {
+		justify-content: center;
+		gap: 0.5rem;
+	}
 
+	/* Put the crown and name on their own row */
+	.navbar #brand {
+		flex-basis: 100%;
+		justify-content: center;
+		margin-right: 0;
+	}
+
+	.navbar #brand .nav-link {
+		font-size: clamp(1.2rem, 5vw, 1.5rem);
+	}
+
+	/* Let the remaining links fit or wrap below */
+	.navbar .nav-link {
+		font-size: 0.75rem;
+		letter-spacing: 0.04em;
+		padding: 0.5rem 0.25rem;
+	}
+
+	/* Clearance for the taller navigation bar */
+	section#about,
+	section#books,
+	section#faith,
+	section#contact {
+		scroll-margin-top: 10rem;
+	}
+}
+/* LARGER SCREENS */
+@media (min-width: 60rem) {
+	.navbar ul {
+		max-width: 90%;
+	}
+}
+
+/*HEADER SECTION*/
 body {
 	z-index: 1;
 	background: var(--midnight);
@@ -134,6 +194,14 @@ h3.header-tag {
 	color: var(--parchment-muted);
 	text-shadow: -2px 0 var(--gold), 0 2px var(--gold), 2px 0 var(--gold), 0 -2px var(--gold-dark), -2px 0 6px var(--gold-dark), 0 2px 6px var(--gold-dark), 2px 0 6px var(--gold-dark), 0 -2px 6px var(--gold-dark);
 	transform: scale(1.0125, 1.0125);
+}
+@media (max-width: 60rem) {
+	h1 {
+		font-size: 2.5rem;
+	}
+	h3.header-tag {
+		font-size: 1.5rem;
+	}
 }
 header::before {
 	left: 3rem;
@@ -279,21 +347,42 @@ header::before, header::after {
 	}
 }
 
-#about-picture {
-	width: 25vw;
-	float: left;
-	margin-top: 40px;
-	margin-bottom: 30px;
+/*MAIN SECTION*/
+.main h2 {
+	font-size: 3.5rem;
+	color: var(--parchment-muted);
+	text-shadow: 0 0 8px var(--midnight-deep), 4px 4px 2px var(--midnight-deep);
+	font-family: var(--font-display);
 }
+.main h3 {
+	font-size: 3.75rem;
+	color: var(--gold);
+	 -webkit-text-stroke: 0.25px var(--gold-dark);
+	text-shadow: 0 0 8px var(--ink), 4px 4px 2px var(--ink);
+	font-family: var(--font-script);
+}
+.main {
+	margin-top: 5vh;
+	cursor: default;
+	text-align: center;
+	color: var(--parchment);
+}
+
+/*ABOUT SECTION*/
 .profile-pic-container {
 	position: relative;
-	height: 16.7vw;
-	width: 16.7vw;
+	width: 100%;
+	max-width: 24rem;
+	height: auto;
+	aspect-ratio: auto;
+	margin-inline: auto;
 	transition: 0.5s linear;
 }
 #profile-pic {
+	display: block;
 	height: 100%;
 	width: 100%;
+	object-fit: cover;
 	clip-path: polygon(1.65rem 0, calc(100% - 1.65rem) 0, 100% 1.65rem, 100% calc(100% - 1.65rem), calc(100% - 1.65rem) 100%, 1.65rem 100%, 0 calc(100% - 1.65rem), 0 1.65rem);
 	z-index: -1;
 }
@@ -325,25 +414,6 @@ header::before, header::after {
 }
 .profile-pic-container:hover::before, .profile-pic-container:hover::after {
 	transform: scale(1.065);
-}
-.main h2 {
-	font-size: 3.5rem;
-	color: var(--parchment-muted);
-	text-shadow: 0 0 8px var(--midnight-deep), 4px 4px 2px var(--midnight-deep);
-	font-family: var(--font-display);
-}
-.main h3 {
-	font-size: 3.75rem;
-	color: var(--gold);
-	 -webkit-text-stroke: 0.25px var(--gold-dark);
-	text-shadow: 0 0 8px var(--ink), 4px 4px 2px var(--ink);
-	font-family: var(--font-script);
-}
-.main {
-	margin-top: 5vh;
-	cursor: default;
-	text-align: center;
-	color: var(--parchment);
 }
 .about-verse {
 	position: relative;
@@ -499,22 +569,69 @@ header::before, header::after {
 .about-verse2 span {
 	color: var(--steel);
 }
+.about-verse, .about-verse2 {
+	padding: 3rem;
+}
+.about-verse blockquote, .about-verse2 blockquote {
+	margin: 0 0 1.7rem;
+}
 #about {
-	margin-block: 5vh;
-	display: inline-block;
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+	grid-template-areas:
+		"portrait biography"
+		"verse-one biography"
+		"verse-two biography";
+	gap: 2rem 3rem;
+	align-items: start;
+
+	width: calc(100% - 2rem);
+	max-width: 70rem;
+	margin: 10vh auto;
+}
+#about-picture, #about-content, .about-verse, .about-verse2 {
+	float: none;
+	width: auto;
+	min-width: 0;
+	margin: 0;
+	box-sizing: border-box;
 }
 #about-content {
-	width: 24vw;
-	float: left;
+	grid-area: biography;
 	line-height: 1.5;
+}
+#about-content > h2 {
+	margin-top: 0;
 }
 #about-content p {
 	font-size: 1.5rem;
 }
+#about-picture {
+	grid-area: portrait;
+}
+.about-verse {
+	grid-area: verse-one;
+}
+.about-verse2 {
+	grid-area: verse-two;
+}
+@media (max-width: 48rem) {
+	#about {
+		grid-template-columns: minmax(0, 1fr);
+		grid-template-areas:
+			"portrait"
+			"biography"
+			"verse-one"
+			"verse-two";
+		gap: 2rem;
+	}
+}
 
+/*BOOK SECTION*/
 .books {
-	margin: 5.56vh auto 1vh;
-	width: 55vw;
+	width: calc(100% - 2rem);
+	max-width: 70rem;
+	margin-inline: auto;
 	display: block;
 	justify-content: center;
 }
@@ -522,7 +639,9 @@ header::before, header::after {
 	position: relative;
 	background: linear-gradient(145deg, var(--surface), color-mix(in srgb, var(--surface) 0%, transparent) 58%, rgba(2, 15, 21, 0.44));
 	border: 1.5px solid var(--line);
-	margin: 2rem 8rem;
+	padding-inline: clamp(1rem, 3vw, 2rem);
+	box-sizing: border-box;
+	margin: 2rem 0;
 	z-index: 0;
 }
 .book-block::before {
@@ -600,12 +719,12 @@ header::before, header::after {
 	text-decoration: none;
 	letter-spacing: 0.225rem;
 }
-.book-progress {
-	width: 70%;
-	margin: 0.5rem auto 1rem;
-	max-width: 25vw;
+.book-progress, .book-info {
+	width: 100%;
+	max-width: 44rem;
+	margin-inline: auto;
+	box-sizing: border-box;
 }
-/* Stage name and percentage */
 .book-progress-label {
 	display: flex;
 	justify-content: space-between;
@@ -626,7 +745,6 @@ header::before, header::after {
 	font-variant-numeric: tabular-nums;
 	white-space: nowrap;
 }
-/* Three equally sized segments */
 .book-progress-track {
 	display: grid;
 	grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -651,14 +769,16 @@ header::before, header::after {
 	background-color: var(--forest);
 }
 .book-info {
-	position: relative;
+	position: static;
 	display: grid;
 	flex-direction: row;
-	margin: 0.75rem 1rem 3rem;
-	left: 10.95rem;
+	left: auto;
 	justify-items: stretch;
 	align-content: stretch;
 	max-width: 720px;
+}
+.book-genre, .book-audience, .book-descript {
+	margin-inline: 0;
 }
 .book-genre {
 	display: flex;
@@ -675,9 +795,6 @@ header::before, header::after {
 	font-size: 1.6rem;
 	line-height: 1.4;
 	text-align: left;
-}
-.book-genre::before {
-	
 }
 .book-genre span {
 	text-transform: none;
@@ -728,107 +845,277 @@ header::before, header::after {
 	font-variant: small-caps;
 	font-size: 1.4rem;
 	margin-left: 0.75rem;
-}	
+}
+@media (max-width: 48rem) {
+	.book-genre,
+	.book-audience,
+	.book-descript {
+		display: block;
+	}
 
-#faith {
-	
-}
-.timeline {
-  position: relative;
-  padding-left: 10rem;
-  padding-top: 3rem;
-}
-.timeline-track {
-  position: absolute;
-  top: 6rem;
-  bottom: 13rem;
-  left: 7.05rem;
-  width: 6px;
-  background: rgb(200 173 85 / 0.22);
-}
-.timeline-line-fill {
-  display: block;
-  width: 6px;
-  height: 100%;
-  background: linear-gradient(var(--gold-light), var(--gold-dark));
-  box-shadow: 0 0 12px rgb(200 173 85 / 0.4);
-  transform: scaleY(0);
-  transform-origin: top;
-}
-.timeline-item {
-  position: relative;
-  min-height: 180px;
-  padding-bottom: 2.75rem;
-}
-.timeline-dot {
-  position: absolute;
-  top: 0.5rem;
-  left: -3.65rem;
-  width: 1.5rem;
-  aspect-ratio: 1;
-  border: 2px solid var(--gold);
-  background: var(--midnight-deep);
-  transform: rotate(45deg);
-}
-.timeline-label {
-  margin-bottom: 0.75rem;
-  bottom: -0.75rem;
-  color: var(--gold);
-  font-size: 2.75rem;
-  text-align: left;
-}
-.timeline-item h3 {
-  margin-bottom: 0.6rem;
-  color: var(--parchment);
-  font-size: 2rem;
-  text-align: left;
-  font-weight: 500;
-}
-.timeline-item p:last-child {
-  max-width: 560px;
-  text-align: left;
-  color: var(--parchment-muted);
+	.book-genre span,
+	.book-audience span,
+	.book-descript span {
+		display: block;
+		margin-left: 0;
+	}
 }
 
-#contact {
-	cursor: pointer;
-	margin-top: 4.2vw;
-	display: inline-block;
+/*FAITH SECTION*/
+.faith {
+	width: calc(100% - 2rem);
+	max-width: 70rem;
+	margin: 10vh auto;
 }
-#contact-content {
-	width: 30vw;
-	float: right;
+.faith-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 2rem;
 }
-#details {
-	
-	font-size: 1.56rem;
+.faith-panel {
+	position: relative;
+	min-width: 0;
+	padding: clamp(1.5rem, 3vw, 3rem);
+	box-sizing: border-box;
+	border: 1.5px solid var(--line);
+	background: linear-gradient(145deg, var(--surface),	transparent 58%, rgba(2, 15, 21, 0.44));
 }
-#details p {
-	border: 0.09em solid;
-	border-image: linear-gradient(to right, var(--midnight), var(--steel), var(--midnight)) 0.5;
-	background: linear-gradient(to right, var(--midnight), var(--ink), var(--midnight));
-	color: var(--parchment);
-	padding: 8px 6px;
-	margin-left: 20%;
-	width: 16.7vw;
+.faith-panel::before, .faith-panel::after {
+	content: "";
+	position: absolute;
+	width: 2rem;
+	height: 2rem;
+	pointer-events: none;
+}
+.faith-panel::before {
+	top: 10px;
+	left: 10px;
+	border-top: 2px solid var(--line);
+	border-left: 2px solid var(--line);
+}
+.faith-panel::after {
+	right: 10px;
+	bottom: 10px;
+	border-right: 2px solid var(--line);
+	border-bottom: 2px solid var(--line);
+}
+.faith-panel h3 {
+	margin: 0 0 1.5rem;
+	font-size: clamp(2.25rem, 3vw, 3rem);
+	font-family: var(--font-antique);
+	text-shadow: 0 0 12px var(--forest), 2px 2px 1px var(--ink);
+	line-height: 1.2;
 	text-align: center;
 }
-#details p:hover {
-	border: 0.09em solid;
-	border-image: linear-gradient(to right, var(--midnight), var(--gold), var(--midnight)) 0.5;
-	background: linear-gradient(to right, var(--midnight), color-mix(in srgb, var(--gold-dark) 25%, transparent), var(--midnight));
+.faith-panel h3::before {
+	content: "\271D";
+	color: var(--gold);
+	text-shadow: 0 0 2px var(--line), 0 0 4px var(--gold-dark), 0 0 6px var(--midnight-deep);
+	font-family: var(--font-label);
+	font-size: 4.5rem;
+	font-weight: 700;
+	display: block;
+	margin: 0 auto 1rem;
 }
-#details a {
-	color: var(--parchment);
-	font-style: italic;
+.faith-panel p {
+	font-family: var(--font-display);
+	font-size: 1.25rem;
+	line-height: 1.65;
+	text-align: left;
+}
+.faith-panel p:last-child {
+	margin-bottom: 0;
+}
+/* Stack the panels on smaller screens */
+@media (max-width: 48rem) {
+	.faith-grid {
+		grid-template-columns: minmax(0, 1fr);
+	}
 }
 
-footer {
+/*CONTACT SECTION*/
+#contact {
+	display: block;
+	width: calc(100% - 2rem);
+	max-width: 70rem;
+	margin: 5vh auto;
+	padding: clamp(2rem, 5vw, 3.5rem) 1.5rem;
+	box-sizing: border-box;
+	background: radial-gradient(ellipse at center, var(--surface), var(--midnight) 72%);
+
+	border-top: 1px solid var(--line);
+	border-bottom: 1px solid var(--line);
+	text-align: center;
 	cursor: default;
-	position: absolute;
-	left: 92%;
-	width: 25vw;
-	padding: 5px;
+}
+#contact h2 {
+	margin: 0 0 1.5rem;
+	color: var(--gold);
+	font-family: var(--font-label);
+	font-size: 0.875rem;
+	font-weight: 400;
+	line-height: 1.5;
+	letter-spacing: 0.2em;
+	text-shadow: none;
+}
+.contact-ornament {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	width: min(100%, 12rem);
+	margin: 0 auto 1.5rem;
+}
+.contact-ornament::before, .contact-ornament::after {
+	content: "";
+	flex: 1;
+	height: 1px;
+	background: var(--line);
+}
+.contact-ornament span {
+	width: 0.45rem;
+	height: 0.45rem;
+	background: var(--gold);
+	transform: rotate(45deg);
+}
+#contact h3 {
+	margin: 0;
 	color: var(--parchment);
-	font-weight: bold;
+	font-family: var(--font-antique);
+	font-size: clamp(2rem, 4vw, 2.625rem);
+	font-weight: 400;
+	line-height: 1.15;
+	text-shadow: none;
+	-webkit-text-stroke: 0;
+}
+.contact-message {
+	max-width: 43ch;
+	margin: 1.25rem auto 1.5rem;
+	color: var(--parchment-muted);
+	font-family: Georgia, serif;
+	font-size: 1.125rem;
+	line-height: 1.65;
+}
+.contact-email {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 0.65rem;
+	max-width: 100%;
+	min-height: 3rem;
+	padding: 0.45rem 0;
+	color: var(--gold-light);
+	font-family: var(--font-antique);
+	font-size: clamp(1.25rem, 3vw, 1.75rem);
+	line-height: 1.35;
+	text-decoration: none;
+	overflow-wrap: anywhere;
+	border-bottom: 1px solid var(--gold);
+}
+.contact-email:hover {
+	color: var(--parchment);
+	border-bottom-color: var(--parchment);
+}
+.contact-social {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 0.5rem 1.5rem;
+	margin-top: 1.25rem;
+}
+.contact-social a, .contact-books {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	min-height: 2.75rem;
+
+	font-family: var(--font-label);
+	font-size: 0.85rem;
+	line-height: 1.4;
+	text-decoration: none;
+}
+.contact-social a {
+	color: var(--parchment-muted);
+}
+.contact-books {
+	color: var(--gold);
+}
+.contact-social a:hover, .contact-books:hover {
+	color: var(--gold-light);
+	text-decoration: underline;
+	text-underline-offset: 0.25rem;
+}
+/* Keyboard navigation */
+#contact a:focus-visible {
+	outline: 2px solid var(--gold-light);
+	outline-offset: 4px;
+}
+
+/*FOOTER SECTION*/
+.site-footer {
+	position: static;
+	width: 75%;
+	max-width: 1200px;
+	margin-inline: auto;
+	padding-block: 3.5rem;
+	color: var(--parchment-muted);
+	border-top: 1px solid var(--line);
+}
+.footer-grid {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: 2rem;
+	align-items: start;
+}
+.footer-brand {
+	margin-bottom: 0.2rem;
+	color: var(--gold-light);
+	font-family: var(--font-label);
+	font-size: 0.75rem;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+}
+.footer-brand-mark {
+	color: var(--gold);
+	position: relative;
+	display: grid;
+	place-items: center;
+	width: 2rem;
+	aspect-ratio: 1;
+	font-size: 1rem;
+}
+.footer-brand-mark::before {
+	position: absolute;
+	inset: 0.125rem;
+	border: 1.5px solid var(--gold-dark);
+	content: "";
+	transform: rotate(45deg);
+}
+.footer-grid > div:first-child p:last-child {
+	margin: 0;
+	font-family: var(--font-antique);
+	font-size: 1.18rem;
+}
+.back-to-top {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.65rem;
+	color: var(--gold);
+	text-decoration: none;
+	font-family: var(--font-label);
+	font-size: 0.65rem;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+.footer-legal {
+	grid-column: 1 / -1;
+	padding-top: 2rem;
+	border-top: 1px solid rgb(200 173 85 / 0.16);
+	font-size: 0.76rem;
+	line-height: 1.5;
+}
+.footer-legal p {
+	margin-bottom: 0.35rem;
 }
