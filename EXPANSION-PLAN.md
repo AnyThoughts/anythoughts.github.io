@@ -1,13 +1,13 @@
-# Website expansion plan: The Gospel and Crimson Zion
+# Website expansion plan: Hope, Crimson Zion, and book covers
 
 Date: September 15, 2026  
 Repository: AnyThoughts/anythoughts.github.io  
 Working branch: `site-2026-redesign`  
-Status: navigation labels, order, and destinations confirmed by Dan; expansion implementation has not begun.
+Status: navigation labels, order, destinations, and addition of book-cover spaces confirmed by Dan; implementation has not begun.
 
 ## Purpose
 
-Give visitors a clear presentation of the gospel and a place to discover Crimson Zion, while retaining Daniel Goodwin's author website as their shared home. Continue the site's lightweight, hand-coded, responsive, dignified Christian character.
+Give visitors a clear presentation of the gospel and a place to discover Crimson Zion, while retaining Daniel Goodwin's author website as their shared home. Add a modest cover-image space to each of the seven existing book tiles to make the Books section more visually informative. Continue the site's lightweight, hand-coded, responsive, dignified Christian character.
 
 This plan covers the phase after the September 12 redesign release. `REDESIGN-PLAN.md` records the original modernization proposal; its old inventory and implementation status are historical.
 
@@ -37,11 +37,11 @@ This was a source inspection, not a rendered browser review.
 
 | Page | File | Purpose |
 | --- | --- | --- |
-| Home | `index.html` | Preserve the author introduction, biography, books, Faith & Service, and contact; add clear routes to the two new pages. |
+| Home | `index.html` | Retain the author introduction, biography, seven books, Faith & Service, and contact; add book-cover spaces and clear routes to the two new pages. |
 | Hope / The Gospel | `gospel.html` | Explain the good news of Jesus Christ and invite visitors to respond and ask questions. The navigation label is Hope. |
 | Music / Crimson Zion | `music.html` | Introduce the music, provide a Spotify listening experience, and present releases and their message. |
 
-Use the existing shared `dgstylesheet.css`. Place new music artwork in `assets/music/` with simple, descriptive filenames.
+Use the existing shared `dgstylesheet.css`. Place new music artwork in `assets/music/` and book covers in `assets/books/`, with simple, descriptive filenames.
 
 The navigation labels, order, and destinations below are confirmed. Filenames remain implementation recommendations to settle before coding.
 
@@ -123,7 +123,27 @@ Keep the player responsive and defer loading it until near the viewport where pr
 
 **Complete when:** Dan has reviewed the music content and appearance, and the real player and release links have been checked.
 
-### 5. Connect the pages and check the whole site
+### 5. Add cover-image spaces to the book tiles
+
+Dan requested a modest place for cover art in each of the seven existing book tiles, roughly **240 × 240 pixels on a 1080p desktop screen**. This is a refinement of the existing Books section.
+
+Treat 240 × 240 CSS pixels as the approximate maximum desktop display area, using a normal-zoom 1920 × 1080 viewport as a visual reference. This is not a required source-image resolution, and screen resolution alone does not determine browser layout.
+
+**Confirmed:** every tile should accommodate a cover image, with a modest desktop footprint.
+
+**Proposed presentation to review:** a consistently sized cover area to the left of each tile's existing title, progress, and details on larger screens; a centered cover above the text on narrow screens. Use flexible sizing so the image area can shrink with the available space.
+
+Preserve each cover's natural proportions and show the complete artwork. A portrait cover can sit within the square display area; do not stretch it into a square or crop away its title. Fit the frame, spacing, and optional subtle border/shadow to the current site.
+
+Retain the existing seven-book order, text, progress states, and outer card widths. Adapt only the internal layout needed to accommodate artwork, keeping progress bars and information aligned.
+
+Gather the available cover files before implementation. Some projects may not yet have cover art: review a restrained placeholder treatment, such as “Cover forthcoming,” with Dan so unfinished projects look intentional and never show broken images. Do not invent or generate covers as part of this addition.
+
+Use appropriately sized, compressed web images, meaningful image descriptions, and reserved layout space to prevent shifting as covers load. Load below-the-fold images lazily where appropriate. Include simple instructions for adding or replacing each cover.
+
+**Complete when:** Dan has reviewed one representative tile, the treatment has been applied consistently to all seven, and portrait/square covers, long titles, missing artwork, and narrow-screen layouts have been checked.
+
+### 6. Connect the pages and check the whole site
 
 Add the homepage introductions, agreed navigation, and consistent footer links. Give each new page its own descriptive title and search description.
 
@@ -136,25 +156,26 @@ Check:
 - Keyboard navigation and focus are visible; new images have meaningful descriptions and the player has a descriptive title.
 - Spotify works as available in a regular window and a signed-out/private window; direct links remain usable when the embed is unavailable.
 - Assets and embedded resources use HTTPS, and no audio starts unexpectedly.
-- Existing About, Books, Faith & Service, Contact, fonts, and footer retain their intended behavior.
+- Existing About, Books, Faith & Service, Contact, fonts, and footer retain their intended behavior, with the agreed cover addition fitting the Books layout.
+- All seven book-cover spaces remain modest, show the complete cover proportions, and work with both available and forthcoming artwork.
 
 Use an available development preview and Dan's browser checks. Do not change the production Pages source merely to preview the branch.
 
 **Complete when:** concrete layout or functional problems are resolved and Dan has reviewed the connected site.
 
-### 6. Publish and leave maintenance notes
+### 7. Publish and leave maintenance notes
 
 Prepare a pull request from `site-2026-redesign` to `main`, summarizing the expansion and the checks actually performed. Resolve any differences from intervening changes to `main` before release.
 
 Publish after Dan approves the finished result. Verify the new public page URLs, navigation, artwork, listening links, and HTTPS after deployment.
 
-Add a short maintenance guide covering where to edit gospel text, add a release, replace artwork, update the Spotify selection, and keep shared navigation/footer copies consistent. Keep HTML and CSS clearly organized with useful comments.
+Add a short maintenance guide covering where to edit gospel text, add a release, add or replace a book cover, replace music artwork, update the Spotify selection, and keep shared navigation/footer copies consistent. Keep HTML and CSS clearly organized with useful comments.
 
 **Complete when:** the approved expansion is live and Dan can confidently make routine updates.
 
 ## Immediate next step
 
-With navigation confirmed, draft the Hope page's gospel presentation together and settle its page title. Confirm the new homepage introduction placement before implementing it. Music assets and listening links can be gathered when we reach the Crimson Zion phase; they do not block gospel work.
+With navigation confirmed, draft the Hope page's gospel presentation together and settle its page title. Confirm the new homepage introduction placement before implementing it. Music assets and listening links can be gathered when we reach the Crimson Zion phase; they do not block gospel work. Book-cover spaces are included as a separate refinement before final site checks; their exact placement and placeholder styling remain to be discussed.
 
 ## Spotify references
 
