@@ -3,7 +3,7 @@
 Date: September 15, 2026  
 Repository: AnyThoughts/anythoughts.github.io  
 Working branch: `site-2026-redesign`  
-Status: planning document saved; expansion implementation has not begun.
+Status: navigation labels, order, and destinations confirmed by Dan; expansion implementation has not begun.
 
 ## Purpose
 
@@ -13,7 +13,7 @@ This plan covers the phase after the September 12 redesign release. `REDESIGN-PL
 
 ## Starting point
 
-The repository was inspected on September 15, 2026. The development branch and `main` currently contain identical files, despite having different commit histories:
+At the September 15, 2026 inspection, before this planning document was added, the development branch and `main` contained identical files despite having different commit histories:
 
 - Live baseline: `0630fbd36f1d0c0baff8d300b2f28c0e447813fa`.
 - Development baseline before this document: `ff36b25119312d1b29a3b8e49236a16f6dd7fbfc`.
@@ -38,26 +38,36 @@ This was a source inspection, not a rendered browser review.
 | Page | File | Purpose |
 | --- | --- | --- |
 | Home | `index.html` | Preserve the author introduction, biography, books, Faith & Service, and contact; add clear routes to the two new pages. |
-| The Gospel | `gospel.html` | Explain the good news of Jesus Christ and invite visitors to respond and ask questions. |
+| Hope / The Gospel | `gospel.html` | Explain the good news of Jesus Christ and invite visitors to respond and ask questions. The navigation label is Hope. |
 | Music / Crimson Zion | `music.html` | Introduce the music, provide a Spotify listening experience, and present releases and their message. |
 
 Use the existing shared `dgstylesheet.css`. Place new music artwork in `assets/music/` with simple, descriptive filenames.
 
-These filenames and the navigation below are recommendations to settle before coding.
+The navigation labels, order, and destinations below are confirmed. Filenames remain implementation recommendations to settle before coding.
 
 ## Order of work
 
-### 1. Settle the page structure and navigation
+### 1. Use the confirmed navigation and settle homepage placement
 
-Recommended navigation: author name linking home, then About, Books, Music, The Gospel, and Contact.
+Dan confirmed this exact navigation order:
 
-Faith & Service remains on the homepage with its existing `#faith` destination. Its section gains a clear link to the gospel page; a footer link can keep it directly accessible from the new pages.
+| Order | Navigation label | Destination | Proposed link from any page |
+| --- | --- | --- | --- |
+| 1 | Daniel Goodwin | Brand / homepage introduction | `index.html#home` |
+| 2 | About | Homepage About section | `index.html#about` |
+| 3 | Books | Homepage Books section | `index.html#books` |
+| 4 | Music | New dedicated Crimson Zion page | `music.html` |
+| 5 | Hope | New dedicated gospel page | `gospel.html` |
+| 6 | Faith & Service | Homepage Faith & Service section | `index.html#faith` |
+| 7 | Contact | Homepage Contact section | `index.html#contact` |
+
+Keep all seven entries in this order across the site. Hope is the visitor-facing navigation label for the gospel presentation. Faith & Service retains its own navigation entry and existing homepage section; it also gains a clear link to Hope.
 
 On the new pages, homepage section links must include the homepage path, such as `index.html#about` and `index.html#contact`. A bare `#about` would incorrectly look for that section on the current page.
 
-Review mobile wrapping and fixed-header spacing before settling the menu. Add a modest Crimson Zion introduction on the homepage, provisionally between Books and Faith & Service.
+Plan mobile wrapping and fixed-header spacing around the confirmed seven entries, while preserving generous brand-to-links spacing on large screens. Add a modest Crimson Zion introduction on the homepage, provisionally between Books and Faith & Service.
 
-**Complete when:** Dan is comfortable with the page names, menu, and homepage placement.
+**Confirmed:** navigation labels, order, and destinations. **Still to settle:** homepage introduction placement and responsive menu presentation.
 
 ### 2. Write the gospel presentation
 
@@ -77,7 +87,7 @@ Suggested passages to review while drafting: Romans 3:23; 6:23; 5:8; 1 Corinthia
 
 Use NKJV for quotations and verify wording and references before publication. Preserve consistency with the existing What I Believe statement. Present any suggested prayer as an expression of faith, never as a formula that earns salvation.
 
-Working title: **The Hope Behind the Stories**. Navigation label: **The Gospel**. Both remain open for discussion.
+Working page title: **The Hope Behind the Stories**; the title remains open for discussion. Confirmed navigation label: **Hope**.
 
 **Complete when:** Dan has reviewed the full text, Scripture selection, title, and closing invitation.
 
@@ -144,7 +154,7 @@ Add a short maintenance guide covering where to edit gospel text, add a release,
 
 ## Immediate next step
 
-Discuss the proposed navigation and homepage placement, then draft the gospel presentation together. Music assets and listening links can be gathered when we reach the Crimson Zion phase; they do not block planning or gospel work.
+With navigation confirmed, draft the Hope page's gospel presentation together and settle its page title. Confirm the new homepage introduction placement before implementing it. Music assets and listening links can be gathered when we reach the Crimson Zion phase; they do not block gospel work.
 
 ## Spotify references
 
